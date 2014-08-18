@@ -1,0 +1,36 @@
+# This file contains metadata for your plugin. Beginning
+# with version 1.8 this is the preferred way to supply information about a
+# plugin. The current method of embedding metadata in __init__.py will
+# be supported until version 2.0
+
+# This file should be included when you package your plugin.
+
+# Mandatory items:
+
+[general]
+name=QgisMarkerCluster Plugin
+qgisMinimumVersion=2.2
+description=Combines points in a defined distance into a cluster point.
+version=0.1
+author=Matthias Ludwig - Datalyze Solutions
+email=m.ludwig@datalyze-solutions.com
+
+# end of mandatory metadata
+
+# Optional items:
+
+# Uncomment the following line and add your changelog entries:
+# changelog=
+
+# tags are comma separated with spaces allowed
+tags=Cluster, point data visualization
+
+homepage=http://www.datalyze-solutions.com
+tracker=https://github.com/datalyze-solutions/QgisMarkerCluster/issues
+repository=https://github.com/datalyze-solutions/QgisMarkerCluster
+icon=icon.png
+# experimental flag
+experimental=True
+
+# deprecated flag (applies to the whole plugin, not just a single version
+deprecated=False
