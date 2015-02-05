@@ -248,7 +248,7 @@ class QgisMarkerCluster(object):
 
 class dialogInfo(QDialog, Ui_info):
 
-    def __init__(self, workingDir, infoHtml="README.html"):
+    def __init__(self, workingDir, infoHtml="INFO.html"):
         super(dialogInfo, self).__init__()
         self.setupUi(self)
 

@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'ui_QgisMarkerClusterDockWidget.ui'
 #
-# Created: Fri Aug 15 16:25:18 2014
-#      by: PyQt4 UI code generator 4.9.1
+# Created: Thu Feb  5 14:51:37 2015
+#      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,14 +12,23 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    _fromUtf8 = lambda s: s
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_QgisMarkerClusterDockWidget(object):
     def setupUi(self, QgisMarkerClusterDockWidget):
         QgisMarkerClusterDockWidget.setObjectName(_fromUtf8("QgisMarkerClusterDockWidget"))
-        QgisMarkerClusterDockWidget.resize(459, 314)
-        QgisMarkerClusterDockWidget.setMinimumSize(QtCore.QSize(274, 293))
-        QgisMarkerClusterDockWidget.setMaximumSize(QtCore.QSize(524287, 524287))
+        QgisMarkerClusterDockWidget.resize(274, 293)
+        QgisMarkerClusterDockWidget.setMinimumSize(QtCore.QSize(0, 0))
+        QgisMarkerClusterDockWidget.setMaximumSize(QtCore.QSize(16777215, 293))
         self.dockWidgetContents = QtGui.QWidget()
         self.dockWidgetContents.setObjectName(_fromUtf8("dockWidgetContents"))
         self.verticalLayout_3 = QtGui.QVBoxLayout(self.dockWidgetContents)
@@ -95,28 +104,26 @@ class Ui_QgisMarkerClusterDockWidget(object):
         self.doubleSpinBoxClusterDistance.setObjectName(_fromUtf8("doubleSpinBoxClusterDistance"))
         self.verticalLayout.addWidget(self.doubleSpinBoxClusterDistance)
         self.verticalLayout_3.addWidget(self.groupBox_2)
-        spacerItem1 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-        self.verticalLayout_3.addItem(spacerItem1)
         QgisMarkerClusterDockWidget.setWidget(self.dockWidgetContents)
 
         self.retranslateUi(QgisMarkerClusterDockWidget)
         QtCore.QMetaObject.connectSlotsByName(QgisMarkerClusterDockWidget)
 
     def retranslateUi(self, QgisMarkerClusterDockWidget):
-        QgisMarkerClusterDockWidget.setWindowTitle(QtGui.QApplication.translate("QgisMarkerClusterDockWidget", "Qgis Marker Cluster", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonLoadTestDataset.setToolTip(QtGui.QApplication.translate("QgisMarkerClusterDockWidget", "load selected dataset", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonLoadTestDataset.setStatusTip(QtGui.QApplication.translate("QgisMarkerClusterDockWidget", "load selected dataset", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonLoadTestDataset.setText(QtGui.QApplication.translate("QgisMarkerClusterDockWidget", "1. Load Point Layer", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonInfo.setToolTip(QtGui.QApplication.translate("QgisMarkerClusterDockWidget", "Show information", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonInfo.setStatusTip(QtGui.QApplication.translate("QgisMarkerClusterDockWidget", "Show information", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonInfo.setText(QtGui.QApplication.translate("QgisMarkerClusterDockWidget", "OSM", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonClusterPoints.setToolTip(QtGui.QApplication.translate("QgisMarkerClusterDockWidget", "Show information", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonClusterPoints.setStatusTip(QtGui.QApplication.translate("QgisMarkerClusterDockWidget", "Cluster Points", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonClusterPoints.setText(QtGui.QApplication.translate("QgisMarkerClusterDockWidget", "2. Setup First Cluster", None, QtGui.QApplication.UnicodeUTF8))
-        self.groupBox.setTitle(QtGui.QApplication.translate("QgisMarkerClusterDockWidget", "Cluster Shape", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonLoadClusterDataset.setToolTip(QtGui.QApplication.translate("QgisMarkerClusterDockWidget", "load selected dataset", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonLoadClusterDataset.setStatusTip(QtGui.QApplication.translate("QgisMarkerClusterDockWidget", "add cluster shape", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonLoadClusterDataset.setText(QtGui.QApplication.translate("QgisMarkerClusterDockWidget", "3. Add more cluster shapes", None, QtGui.QApplication.UnicodeUTF8))
-        self.groupBox_2.setTitle(QtGui.QApplication.translate("QgisMarkerClusterDockWidget", "Cluster Distance", None, QtGui.QApplication.UnicodeUTF8))
+        QgisMarkerClusterDockWidget.setWindowTitle(_translate("QgisMarkerClusterDockWidget", "Qgis Marker Cluster", None))
+        self.buttonLoadTestDataset.setToolTip(_translate("QgisMarkerClusterDockWidget", "load selected dataset", None))
+        self.buttonLoadTestDataset.setStatusTip(_translate("QgisMarkerClusterDockWidget", "load selected dataset", None))
+        self.buttonLoadTestDataset.setText(_translate("QgisMarkerClusterDockWidget", "1. Load Point Layer", None))
+        self.buttonInfo.setToolTip(_translate("QgisMarkerClusterDockWidget", "Show information", None))
+        self.buttonInfo.setStatusTip(_translate("QgisMarkerClusterDockWidget", "Show information", None))
+        self.buttonInfo.setText(_translate("QgisMarkerClusterDockWidget", "OSM", None))
+        self.buttonClusterPoints.setToolTip(_translate("QgisMarkerClusterDockWidget", "Show information", None))
+        self.buttonClusterPoints.setStatusTip(_translate("QgisMarkerClusterDockWidget", "Cluster Points", None))
+        self.buttonClusterPoints.setText(_translate("QgisMarkerClusterDockWidget", "2. Setup First Cluster", None))
+        self.groupBox.setTitle(_translate("QgisMarkerClusterDockWidget", "Cluster Shape", None))
+        self.buttonLoadClusterDataset.setToolTip(_translate("QgisMarkerClusterDockWidget", "load selected dataset", None))
+        self.buttonLoadClusterDataset.setStatusTip(_translate("QgisMarkerClusterDockWidget", "add cluster shape", None))
+        self.buttonLoadClusterDataset.setText(_translate("QgisMarkerClusterDockWidget", "3. Add more cluster shapes", None))
+        self.groupBox_2.setTitle(_translate("QgisMarkerClusterDockWidget", "Cluster Distance", None))
 
 import resources_rc
