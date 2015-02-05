@@ -278,15 +278,13 @@ class QgsClusterCalculator(object):
 
     def createTempDataset(self, crs, appPath): 
         ## rewrite with tempfile
-        if os.path.exists("/tmp"):
-            try:
-                os.mkdir("/tmp/cluster_tmp")
-            except:
-                pass
+        tempdir = tempfile.gettempdir()
+        try:
+            os.mkdir("/tmp/cluster_tmp")
             tmpClusterShapePath = os.path.join("/tmp/cluster_tmp", u"cluster_{0}.shp".format(uuid4()))
-        else:
-            tmpClusterShapePath = os.path.join(appPath, "tmp", u"cluster_{0}.shp".format(uuid4()))
-        
+        except:
+            tmpClusterShapePath = os.path.join(tempdir, u"cluster_{0}.shp".format(uuid4()))
+
         #tmpClusterPointLayer = QgsVectorLayer("Point?crs={0}&field=id:integer&field=count:integer&field=scale:integer&field=distance:integer&index=yes".format(crs), "Cluster Points", "memory")
         tmpClusterPointLayer = QgsVectorLayer("Point?crs={0}&index=yes".format(crs), "Cluster Points", "memory")
 

@@ -74,7 +74,7 @@ class QgisMarkerCluster(object):
     def initGui(self):
         # Create action that will start plugin configuration
         self.action = QAction(
-            QIcon(":/icons/icon.png"),
+            QIcon(":/icons/icons/icon.png"),
             u"QgisMarkerCluster Plugin", self.iface.mainWindow())
         # connect the action to the run method
         self.action.triggered.connect(self.showDock)
@@ -231,7 +231,7 @@ class QgisMarkerCluster(object):
 
     def setInitalClusterDistance(self, layer):
         if layer.isValid():
-            # vector            
+            # vector
             if layer.type() == 0:
                 # point
                 if layer.geometryType() == 0:
@@ -246,8 +246,7 @@ class QgisMarkerCluster(object):
                     else:
                         self.dock.doubleSpinBoxClusterDistance.setMinimum(0.0001)
                         self.dock.doubleSpinBoxClusterDistance.setMaximum(1000)
-                        self.dock.doubleSpinBoxClusterDistance.setValue(60)                        
-
+                        self.dock.doubleSpinBoxClusterDistance.setValue(60)
 
 class dialogInfo(QDialog, Ui_info):
 
