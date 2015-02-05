@@ -25,7 +25,7 @@ QGISDIR=.qgis2
 # Makefile for a PyQGIS plugin
 
 # translation
-SOURCES = QgisMarkerCluster.py ui_info.py __init__.py QgisMarkerClusterDockWidget.py
+SOURCES = QgisMarkerCluster.py ui_info.py __init__.py QgisMarkerClusterWidget.py
 #TRANSLATIONS = i18n/tilemapscaleplugin_en.ts
 TRANSLATIONS =
 
@@ -33,9 +33,38 @@ TRANSLATIONS =
 
 PLUGINNAME = QgisMarkerCluster
 
-PY_FILES = QgisMarkerCluster.py __init__.py QgisMarkerClusterDockWidget.py
+PY_FILES = QgisMarkerCluster.py __init__.py QgisMarkerClusterWidget.py
 
-EXTRAS = icon.png metadata.txt
+LIBS = libs/__init__.py \
+	libs/QgsClusterLayer.py \
+	libs/QgsLayerStyles.py \
+	libs/tilemapscalelevels.py \
+
+EXTRAS = metadata.txt \
+	INFO.html \
+	README.txt \
+
+ICONS = icons/draw-freehand.png \
+	icons/ds_logo.png \
+	icons/ds_made_by.png \
+	icons/example.jpg \
+	icons/help-about.png \
+	icons/icon.png \
+	icons/list-add.png \
+	icons/osm.png \
+	icons/view-refresh.png \
+
+SVG = datasets/styles/svg/shadow_circle.svg
+
+STYLES = datasets/styles/little_gray_point.qml \
+	datasets/styles/simple_cluster.qml \
+	
+DATASETS = datasets/licence.txt \
+	datasets/stations_3857.dbf \
+	datasets/stations_3857.prj \
+	datasets/stations_3857.qpj \
+	datasets/stations_3857.shp \
+	datasets/stations_3857.shx \
 
 UI_FILES = ui_info.py ui_QgisMarkerClusterDockWidget.py
 
@@ -61,10 +90,18 @@ compile: $(UI_FILES) $(RESOURCE_FILES)
 # $HOME/$(QGISDIR)/python/plugins
 deploy: compile doc transcompile
 	mkdir -p $(HOME)/$(QGISDIR)/python/plugins/$(PLUGINNAME)
+	mkdir -p $(HOME)/$(QGISDIR)/python/plugins/$(PLUGINNAME)/icons
+	mkdir -p $(HOME)/$(QGISDIR)/python/plugins/$(PLUGINNAME)/libs
+	mkdir -p $(HOME)/$(QGISDIR)/python/plugins/$(PLUGINNAME)/datasets/styles/svg
 	cp -vf $(PY_FILES) $(HOME)/$(QGISDIR)/python/plugins/$(PLUGINNAME)
+	cp -vf $(LIBS) $(HOME)/$(QGISDIR)/python/plugins/$(PLUGINNAME)/libs
+	cp -vf $(DATASETS) $(HOME)/$(QGISDIR)/python/plugins/$(PLUGINNAME)/datasets
+	cp -vf $(STYLES) $(HOME)/$(QGISDIR)/python/plugins/$(PLUGINNAME)/datasets/styles
+	cp -vf $(SVG) $(HOME)/$(QGISDIR)/python/plugins/$(PLUGINNAME)/datasets/styles/svg
 	cp -vf $(UI_FILES) $(HOME)/$(QGISDIR)/python/plugins/$(PLUGINNAME)
 	cp -vf $(RESOURCE_FILES) $(HOME)/$(QGISDIR)/python/plugins/$(PLUGINNAME)
 	cp -vf $(EXTRAS) $(HOME)/$(QGISDIR)/python/plugins/$(PLUGINNAME)
+	cp -vf $(ICONS) $(HOME)/$(QGISDIR)/python/plugins/$(PLUGINNAME)/icons
 	cp -vfr i18n $(HOME)/$(QGISDIR)/python/plugins/$(PLUGINNAME)
 	cp -vfr $(HELP) $(HOME)/$(QGISDIR)/python/plugins/$(PLUGINNAME)/help
 

@@ -11,7 +11,7 @@
 name=QgisMarkerCluster Plugin
 qgisMinimumVersion=2.2
 description=Combines points in a defined distance into a cluster point.
-version=0.1
+version=0.1.1
 author=Matthias Ludwig - Datalyze Solutions
 email=m.ludwig@datalyze-solutions.com
 
