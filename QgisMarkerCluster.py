@@ -45,15 +45,15 @@ class QgisMarkerCluster(object):
         self.iface = iface
         self.canvas = self.iface.mapCanvas()
         self.registry = QgsMapLayerRegistry.instance()
-        
+
         # initialize plugin directory
         self.workingDir = os.path.dirname(os.path.abspath(__file__))
         self.datasetDir = os.path.join(self.workingDir, "datasets")
         self.config = ConfigurationSettings(self.workingDir)
-        
+
         if not os.path.exists(self.datasetDir):
             self.iface.messageBar().pushMessage("Error", "Can't find %s. You wont't be able to load any datasets." % self.datasetDir, QgsMessageBar.CRITICAL)
-            
+
         # initialize locale
         locale = QSettings().value("locale/userLocale")[0:2]
         localePath = os.path.join(self.workingDir, 'i18n', 'tilemapscaleplugin_{}.qm'.format(locale))
@@ -75,7 +75,7 @@ class QgisMarkerCluster(object):
         # Create action that will start plugin configuration
         self.action = QAction(
             QIcon(":/icons/icons/icon.png"),
-            u"QgisMarkerCluster Plugin", self.iface.mainWindow())
+            u"Marker Cluster Plugin", self.iface.mainWindow())
         # connect the action to the run method
         self.action.triggered.connect(self.showDock)
 
@@ -84,11 +84,9 @@ class QgisMarkerCluster(object):
         self.projection = self.canvas.mapRenderer().destinationCrs()
         self.canvas.enableAntiAliasing(True)
 
-        #self.readStatus()
-        
         ## Add toolbar button and menu item
         self.iface.addToolBarIcon(self.action)
-        self.iface.addPluginToMenu(u"&QgisMarkerCluster Plugin", self.action)
+        self.iface.addPluginToVectorMenu(u"&Marker Cluster Plugin", self.action)
 
         self.dock.buttonInfo.clicked.connect(self.showInfo)
 
@@ -102,7 +100,7 @@ class QgisMarkerCluster(object):
 
     def unload(self):
         # Remove the plugin menu item and icon
-        self.iface.removePluginMenu(u"&QgisMarkerCluster Plugin", self.action)
+        self.iface.removePluginMenu(u"&Marker Cluster Plugin", self.action)
         self.iface.removeToolBarIcon(self.action)
         del self.dock
         del self.clusterCalculator
@@ -115,7 +113,7 @@ class QgisMarkerCluster(object):
 
     def unload(self):
         # Remove the plugin menu item and icon
-        self.iface.removePluginMenu(u"&Tile Map Scale Plugin", self.action)
+        self.iface.removePluginVectorMenu(u"&Marker Cluster Plugin", self.action)
         self.iface.removeToolBarIcon(self.action)
         self.iface.removeDockWidget(self.dock)
 
